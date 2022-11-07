@@ -64,7 +64,7 @@
         object-position: top
     }
     .grid__col-3{
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     .footer__nav{
         margin-bottom: 40px;
