@@ -57,12 +57,77 @@ button {
 	align-items: center;
 }
 .header__logo{
+	position: relative;
 	font-size: 28px;
+	z-index: 9999;
 }
 .header__link{
 	font-size: 22px;
 	margin-left: 15px;
 }
+.burger{
+	display: none;
+}
+.burger__btn{
+	position: relative;
+	z-index: 9999;
+	display: inline-block;
+	width: 40px;
+	height: 3px;
+	background-color: var(--light);
+	transition: .6s;
+}
+.burger__btn::before{
+	content: "";
+	position: absolute;
+	width: 40px;
+	height: 3px;
+	background-color: var(--light);
+	top: -10px;
+	left: 0;
+	transition: .6s;
+}
+.burger__btn::after{
+	content: "";
+	position: absolute;
+	width: 40px;
+	height: 3px;
+	background-color: var(--light);
+	bottom: -10px;
+	left: 0;
+	transition: .6s;
+}
+#burger:checked + .burger__btn{
+	background-color: var(--dark)
+}
+#burger:checked + .burger__btn:before{
+	transform: rotate(45deg);
+	top: 0;
+}
+#burger:checked + .burger__btn:after{
+	transform: rotate(-45deg);
+	bottom: 0;
+}
+.burger__nav{
+	position: absolute;
+    background-color: var(--dark);
+    left: 0;
+    display: block;
+    width: 100%;
+    top: -200px;
+    padding: 20px;
+	transition: .6s;
+}
+#burger:checked ~ .burger__nav{
+	top: 54px;
+}
+.burger__link{
+	display: block;
+	text-align: center;
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
 /* HEADER SECTION */
 /* HERO SECTION */
 .hero {
@@ -103,16 +168,12 @@ button {
 	padding: 80px 0;
 	color: var(--light);
 	background-color: var(--dark);
-	border-bottom: 2px solid var(--light);
 }
 .films__grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	row-gap: 40px;
 	column-gap: 30px;
-}
-.films__card {
-
 }
 .films__img {
 	width: 100%;
